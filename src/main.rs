@@ -3,6 +3,7 @@
 
 extern crate rocket;
 extern crate dotenv;
+extern crate diesel;
 
 pub mod schema;
 pub mod models;
@@ -11,13 +12,6 @@ use diesel::prelude::*;
 use diesel::pg::PgConnection;
 use dotenv::dotenv;
 use std::env;
-
-pub struct User {
-    pub id: i32,
-    pub email: String,
-    pub created_at: String,
-    pub published: bool,
-}
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
